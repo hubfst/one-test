@@ -1,0 +1,177 @@
+body{
+    background-color:#f2f2f2;
+}
+
+.alert_modal{
+    width: 68%;
+    height: 280px;
+    position: fixed;
+    top:0;
+    left: 306px;
+    z-index: 2;
+    /*background-color:#fa6f57;*/
+    background-color: white;
+    box-shadow:-5px 0 5px gray ;
+    display: none;
+}
+.alert_modal img{
+    margin-left: 100px;
+}
+.alert_modal div{
+    width: 427px;
+    height: 190px;
+    background-color:#fafafa;
+    float: right;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+.header{
+    border-bottom: 1px solid #dddddd;
+}
+.nav{
+    border-bottom: 1px solid #dddddd;
+    height: 100px;
+}
+.nav img{
+    display: inline-block;
+    margin-left:-331px;
+    margin-top: 20px;
+}
+.container.order{
+    width: 1200px;
+    /*height: 200px;*/
+    background-color: white;
+    margin-top: 32px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 100px;
+}
+.addressShow{
+    width: 100%;
+    height: 170px;
+    margin-bottom: 50px;
+    display: none;
+}
+.form-group span.error_warn{
+    color: #ef2f23;
+    display: inline-block;
+    margin-left: 10px;
+}
+.addressShow  div.address{
+    width: 240px;
+    height: 160px;
+    /*background-color: #1b6d85;*/
+    background: url("../images/order_addr.png");
+    background-position: center;
+    margin-top: 20px;
+    color: #666666;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-left: 20px;
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+}
+.addressShow  div.address p.name,
+.order h5
+{
+    color: #333333;
+    font-size: 15px;
+    font-weight: bold;
+}
+.order a.add_address{
+    margin-left: 20px;
+    font-weight:normal;
+    cursor: pointer;
+}
+.addressShow  div.address p.edit{
+    float: right;
+    border-bottom: 1px solid #666666;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.addressShow  div.address:hover{
+    background: url("../images/order_addr.png");
+    background-position:right;
+}
+div.addressShow div.address.address_click{
+    background: url("../images/order_addr.png");
+    background-position:left;
+}
+.addAddress{
+    width: 100%;
+    height: 231px;
+    /*background-color: #c33737;*/
+    clear: both;
+
+}
+.addAddress form input{
+    height: 30px;
+    outline: none;
+}
+.addAddress form i.needicon{
+    font-size: 18px;
+    color: #ef2f23;
+}
+.addAddress form textarea{
+    height: 62px;
+    width: 100%;
+    outline: none;
+}
+.productShow{
+    width: 100%;
+    /*height: 320px;*/
+    /*background-color:#c7254e;*/
+    margin-top:50px;
+    clear: both;
+}
+.productShow table{
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.productShow table tbody tr{
+    background-color: #f8f8f8;
+}
+.productShow table tbody tr.whiteArea{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+.productShow table tbody .pInfo{
+    width: 536px;
+}
+.tfoot{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    border-top: 1px solid gainsboro;
+}
+input#ad{
+    width: 300px;
+    outline: none;
+}
+.tfoot p{
+    float: right;
+}
+.tfoot p span.total_pay{
+    font-size: 25px;
+    color: red;
+    font-weight: bolder;
+}
+.tfoot p span.total_num{
+    color: red;
+}
+.tfoot p span.goPay{
+    display: inline-block;
+    width: 154px;
+    height:48px;
+    background-color: red;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}

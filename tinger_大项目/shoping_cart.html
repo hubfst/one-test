@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="cartApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/headANDfooter.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/shopping_cart.css"/>
+    <title>妮儿网-购物车</title>
+</head>
+<body>
+<div class="header">
+    <div class="header_l">
+        <i class="glyphicon glyphicon-home"></i>
+        <span onclick="gohome()" id="gotitle">回到首页</span>
+    </div>
+    <div class="header_r">
+        <ul>
+            <li><span class="glyphicon glyphicon-list-alt" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>/我的订单</li>
+        </ul>
+    </div>
+</div>
+<div class="nav">
+    <img src="images/logo.png">
+    <div id="search">
+        <input type="text">
+        <span id="search_icon"><i class="glyphicon glyphicon-search" style="font-size: 18px;color: white;margin: 7px auto"></i></span>
+    </div>
+</div>
+<div class="cart_container">
+     <div class="cart_content" ng-controller="cartCtrl">
+         <table class="table">
+             <thead>
+                 <tr>
+                     <td><input type="checkbox" ng-model="check" ng-click="checkAll()"/>全选</td>
+                     <td>商品</td>
+                     <td>商品信息</td>
+                     <td>单价</td>
+                     <td>数量</td>
+                     <td>小计</td>
+                     <td>操作</td>
+                 </tr>
+             </thead>
+             <tbody>
+                  <tr ng-repeat="product in plist">
+                      <td><input type="checkbox" ng-click="checkOne($index)" ng-checked="product.isCheck"/></td>
+                      <td><img ng-src={{product.pimg}}>
+                     {{product.pname}}</td>
+                      <td>颜色：{{product.pcolor}}<br>
+                          尺码：{{product.pscale}}</td>
+                      <td>{{product.price}}</td>
+                      <td>
+                          <span ng-click="numCtrl(0,$index)"><i class="glyphicon glyphicon-minus"></i></span>
+                          <input type="text" value={{product.pcount}}>
+                          <span ng-click="numCtrl(1,$index)"><i class="glyphicon glyphicon-plus"></i></span>
+                      </td>
+                      <td class="xiaoji">{{product.pcount*product.price}}</td>
+                      <td><a  ng-click="deletes($index)">删除</a></td>
+                  </tr>
+             </tbody>
+         </table>
+         <div class="tfoot">
+             <p>共有<span class="total_num">{{total_num}}</span>件商品，总计：<span class="total_pay">{{total_pay}}</span>
+                 <span class="goPay">去下单      ></span></p>
+         </div>
+     </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/shoping_cart.js"></script>
+</body>
+</html>

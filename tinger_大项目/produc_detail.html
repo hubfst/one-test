@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/product_detail.css" rel="stylesheet">
+    <link href="css/headANDfooter.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <title>商品详情页</title>
+</head>
+<body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">登录妮儿网</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"  id="uname" placeholder="用户名"/><br/>
+                <input type="password" id="upwd" placeholder="密码"/ >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="header_l">
+        <span></span>
+        <i class="glyphicon glyphicon-home"></i>
+        <span onclick="gohome()" id="gotitle">回到首页</span>
+    </div>
+    <div class="header_r">
+        <ul>
+            <li id="login">登录</li>
+            <li id="regiest">注册</li>
+            <li data-toggle="" data-target="" id="mycart" ><span class=" glyphicon glyphicon-shopping-cart" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>我的购物车</li>
+            <li><span class="glyphicon glyphicon-list-alt" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>/我的订单</li>
+        </ul>
+    </div>
+</div>
+
+<div id="shop_home_info">
+    <img src="images3/shop_home_logo1.jpg" class="shoplogo">
+    <span id="shop_home_name">连小姐de店</span><br>
+    <span class="vau">质量:<b>4.63</b>服务:<b>4.68</b></span>
+    <a href="#"><img src="images3/shop_home_descript1.jpg" class="shop_dec_img"></a>
+</div>
+<div id="shop_home_img">
+    <a href="#"><img src="images3/shop_home_descript1_1.jpg"></a>
+</div>
+<div id="shop_home_banner">
+<ul>
+    <li>首页</li>
+    <li>全部商品<i class="caret"></i></li>
+</ul>
+</div>
+<div id="product_detail">
+    <div id="product_img">
+        <div id="mask"></div>
+        <div id="superMask"></div>
+        <img src="">
+        <!--<img src="images3/p2_big.jpg">-->
+        <!--<img src="images3/p3_big.jpg">-->
+        <!--<img src="images3/p4_big.jpg">-->
+        <!--<img src="images3/p5_big.jpg">-->
+      <ul id="small_list">
+          <!--<li><img src="images3/p1_small.jpg"></li>-->
+          <!--<li><img src="images3/p2_small.jpg"></li>-->
+          <!--<li><img src="images3/p3_small.jpg"></li>-->
+          <!--<li><img src="images3/p4_small.jpg"></li>-->
+          <!--<li><img src="images3/p5_small.jpg"></li>-->
+      </ul>
+      <div id="largeDiv">
+      </div>
+    </div>
+    <div id="product_choose">
+        <h2>3个色【加棉加厚】气质显瘦呢子大衣中长款毛呢<br>外套</h2>
+        <div>
+            <p id="price_pre">价格：<span>￥226</span></p><br>
+            <p id="price_now">促销价：<span>￥153</span></p><br>
+            <p id="vale">评价:<span>90</span></p>
+            <p id="sale_num">销量:<span>290</span></p>
+        </div>
+        <ul class="colors">
+             <li>款式：</li>
+             <span class="color_img"></span>
+             <!--<li><img src="images3/p1_small.jpg"></li>-->
+             <!--<li><img src="images3/p2_small.jpg"></li>-->
+             <!--<li><img src="images3/p3_small.jpg"></li>-->
+        </ul>
+        <ul class="scale">
+            <li>尺码：</li>
+            <li><span>S</span></li>
+            <li><span>M</span></li>
+            <li><span>L</span></li>
+        </ul>
+        <ul> <li>数量：</li>
+            <li><span><i class="glyphicon glyphicon-minus"></i></span></li>
+            <li><input type="text" value="1" id="counts"></li>
+            <li><span><i class="glyphicon glyphicon-plus"></i></span></li>
+            <li>库存<span style="border: none">30</span>件</li>
+        </ul>
+        <p id="btn">
+        <a href="#">立即购买</a>
+        <a href="#" data-toggle="" data-target="" class="add_cart">加入购物车</a>
+        </p>
+    </div>
+    <div id="hot_other">
+      <h5>---热卖推荐---</h5>
+        <img src="images3/aside_hot_sale.jpg">
+        <span>￥153</span>
+        <img src="images3/aside_hot_sale1.jpg">
+        <span>￥153</span>
+        <img src="images3/aside_hot_sale3.jpg">
+        <span>￥153</span>
+    </div>
+</div>
+<div id="more_detail">
+    <div class="shop_home_aside_info">
+      <p id="sname">连小姐de店</p>
+        <span>质量<br><b>4.63</b></span>
+        <span>服务<br><b>4.68</b></span>
+        <a>进入店铺</a>
+    </div>
+    <div id="aside_hot">
+       <div id="aside_tit">
+       看了又看
+        </div>
+        <div class="aside_hot_img">
+           <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+        <div class="aside_hot_img">
+            <img src="images3/aside_hot_sale1.jpg">
+            <span>大码【练小姐高..</span><br>
+            <span>￥153</span>
+        </div>
+    </div>
+    <div id="detail_show">
+       <div id="detail_show_head">
+             <ul>
+                 <li>商品详情</li>
+                 <li>累计评价</li>
+                 <li>本店其他商品</li>
+             </ul>
+       </div>
+        <div id="p_detail">
+            <h3 id="pd">商品描述</h3>
+            <p>这款我们专属定制， 一分钱一分货，关于同款同图，掌柜建议货比三家，不怕货比货，我们要的是质量，而不是价格，亲们可以买同款比较，对比，谁家差，退谁家的。 我们有信心做好这款衣服。。16年新款，认准练小姐家喔！【支持七天无理由，送运费险，放心购买！】</p>
+            <h3 id="p_scal">产品参数</h3>
+            <table border="1">
+                <tbody>
+                <tr>
+                    <td>尺码：<span>S,L,M</span></td>
+                    <td>材质：<span>毛呢</span></td>
+                    <td>颜色：<span>红色</span></td>
+                </tr>
+                <tr>
+                    <td>风格：<span>小清新</span></td>
+                    <td>元素：<span>纯色</span></td>
+                    <td>季节:<span>冬季</span></td>
+                </tr>
+                </tbody>
+            </table>
+ <h3 id="p_img">穿着效果
+     <i class="glyphicon glyphicon-hand-down"></i>
+ </h3>
+            <div id="p_imgs">
+                <img src="images3/p_det_lg1.jpg">
+                <img src="images3/p_det_lg2.jpg">
+                <img src="images3/p_det_lg3.jpg">
+<h3 id="p_img1">整体款式
+    <i class="glyphicon glyphicon-hand-down"></i>
+</h3>
+                <img src="images3/p_det_lg4.jpg">
+                <img src="images3/p_det_lg5.jpg">
+                <img src="images3/p_det_lg6.jpg">
+                <img src="images3/p_det_lg7.jpg">
+                <img src="images3/p_det_lg8.jpg">
+                <img src="images3/p_det_lg9.jpg">
+                <img src="images3/p_det_lg10.jpg">
+            </div>
+            <h3>尺码说明</h3>
+            <table border="1" id="scal_tab">
+                <thead>
+                    <tr>
+                        <td>尺码</td>
+                        <td>腰围</td>
+                        <td>衣长</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>s</td>
+                    <td>108</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>112</td>
+                    <td>108</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>116</td>
+                    <td>102</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="p_val">
+            <h3>买家评价</h3>
+             <span class="v_head"></span>
+             <span class="v_name">A*****思</span>
+             <p>非常好，质量棒棒的</p>
+            <span class="v_head"></span>
+            <span class="v_name">A*****思</span>
+            <p>非常好，质量棒棒的</p>
+            <span class="v_head"></span>
+            <span class="v_name">A*****思</span>
+            <p>非常好，质量棒棒的</p>
+            <span class="v_head"></span>
+            <span class="v_name">A*****思</span>
+            <p>非常好，质量棒棒的</p>
+        </div>
+        <div id="p_other">
+            <h3>本店其他商品</h3>
+            <div class="other_p"></div>
+            <div class="other_p"></div>
+            <div class="other_p"></div>
+            <div class="other_p"></div>
+        </div>
+    </div>
+    <div class="detail_aside">
+          <div id="dt_as_head">
+<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
+          </div>
+         <div id="dt_as_content">
+             <ul>
+                 <li><i class="glyphicon glyphicon-heart select_active"></i>商品描述</li>
+                 <li><i class="glyphicon glyphicon-heart"></i>产品参数</li>
+                 <li><i class="glyphicon glyphicon-heart"></i>穿着效果</li>
+                 <li><i class="glyphicon glyphicon-heart"></i>整体款式</li>
+                 <li><i class="glyphicon glyphicon-heart"></i>尺码说明</li>
+            </ul>
+         </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_u">
+        <div class="foot_center">
+            <span id="title1" class="title">About Us</span><br>
+                <span id="p11">Sed ut perspiciatis unde omnis iste natus error sit <br>voluptatem accusantium
+                    doloremque laudantium,<br> totam rem aperiam veritatis et quasi nam liber tempore</span>
+            <p id="title2" class="title">We are on Twitter</p>
+            <span id="title3" class="title">Get in Touch with Us</span>
+            <p id="p12">
+                Address: 1600 Amphitheatre Parkway, Mountain View, fst<br>
+                Phone: +321 123 456 7<br>
+                E-mail:977036762@qq.com</p>
+        </div>
+    </div>
+    <!--<div class="footer_d">Welcome to Contact US @977036762 </div>-->
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/products_detail.js"></script>
+</body>
+</html>

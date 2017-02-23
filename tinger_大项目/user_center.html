@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="myCenter">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/headANDfooter.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/user_center.css"/>
+    <title></title>
+</head>
+<body ng-controller="parentCtrl">
+<div class="header">
+    <div class="header_l">
+        <i class="glyphicon glyphicon-home"></i>
+        <span ng-click="gohome()" id="gotitle">回到首页</span>
+    </div>
+    <div class="header_r">
+        <ul>
+            <li ng-click="goshopcart()"><span class=" glyphicon glyphicon-shopping-cart" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>我的购物车</li>
+        </ul>
+    </div>
+</div>
+<div class="nav">
+    <img src="images/logo.png">
+    <div id="search">
+        <input type="text">
+        <span id="search_icon"><i class="glyphicon glyphicon-search" style="font-size: 18px;color: white;margin: 7px auto"></i></span>
+    </div>
+</div>
+<div class="menu_left">
+    <div class="top_header">
+        <img src="images/user_head.jpg" alt=""/>
+        <p class="user_name">菇凉笑一个557</p>
+    </div>
+    <div class="menu_item">
+        <p ng-click="jump('/order')"> 我的订单
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </p>
+    </div>
+    <div class="menu_item">
+        <p ng-click="jump('/address')">地址管理
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </p>
+    </div>
+    <div class="menu_item">
+        <p>账户设置
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </p>
+    </div>
+    <div class="menu_item">
+        <p>我的足迹
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </p>
+    </div>
+</div>
+
+<div class="content">
+    <div ng-view></div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+
+<script>
+    var app=angular.module("myCenter",['ng','ngRoute']);
+   app.config(function($routeProvider){
+       $routeProvider
+           .when('/order',{
+            templateUrl:'tpl/myOrder.html',
+            controller:'orderCtrl'
+     })
+           .when('/address',{
+           templateUrl:'tpl/addr_set.html'
+    })
+          .when('/personal',{
+          templateUrl:'tpl/user_set.html'
+    })
+         .when('/history',{
+           templateUrl:'tpl/view_history.html'
+   })
+        .otherwise({redirectTo:'/order'});
+   });
+    app.controller('parentCtrl',['$scope','$location',function($scope,$location){
+        $scope.jump=function(arg){
+            $location.path(arg);
+        };
+        $scope.gohome=function(){
+            location.href="title.html";
+        };
+        $scope.goshopcart=function(){
+            location.href="shoping_cart.html";
+        }
+    }]);
+
+    app.controller('orderCtrl',['$scope','$http',function($scope,$http){
+           $scope.uid=sessionStorage["uid"];
+           $http({
+            method:'POST',
+            url:'data/get_order.php',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: $.param({"uid":$scope.uid})
+        }).success(function(data){
+            console.log("用户订单信息请求成功！");
+            console.log(data);
+            $scope.orderList=data;
+            $scope.arr_single=[];
+            $scope.arr_many=[];
+            for(var i=0;i<data.length;i++){
+                if(data[i].length>1){
+                    $scope.arr_many.push(data[i]);
+                }else{
+                    $scope.arr_single.push(data[i]);
+                }
+            }
+           console.log($scope.arr_single);
+           console.log($scope.arr_many);
+
+        });
+        $("body").on("click","td.delete_o",function(){
+            $scope.oid=$(this).siblings("td").children("span.orderid").html();
+//            console.log( $scope.oid);
+            $http({
+                method:'POST',
+                url:'data/delete_order.php',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $.param({"oid":$scope.oid})
+            }).success(function(data){
+                console.log(data);
+                alert("订单删除成功!");
+                $(this).parent().parent().parent().parent().remove();
+            })
+        });
+    }])
+</script>
+</body>
+</html>

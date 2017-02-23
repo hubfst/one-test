@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/register.css"/>
+    <title>注册</title>
+</head>
+<body>
+<div class="header">
+    <img src="images/logo.png">
+</div>
+
+<div class="content">
+       <div class="register_form">
+             <p>新用户注册</p>
+           <input type="text" placeholder="请输入用户名"/>
+           <input type="password" placeholder="请输入密码"/>
+           <input type="button" value="注册" class="regist"/>
+       </div>
+</div>
+
+<div class="footer">
+    <div class="footer_u">
+        <div class="foot_center">
+            <span id="title1" class="title">About Us</span><br>
+                <span id="p11">Sed ut perspiciatis unde omnis iste natus error sit <br>voluptatem accusantium
+                    doloremque laudantium,<br> totam rem aperiam veritatis et quasi nam liber tempore</span>
+            <p id="title2" class="title">We are on Twitter</p>
+            <span id="title3" class="title">Get in Touch with Us</span>
+            <p id="p12">
+                Address: 1600 Amphitheatre Parkway, Mountain View, fst<br>
+                Phone: +321 123 456 7<br>
+                E-mail:977036762@qq.com</p>
+        </div>
+    </div>
+    <!--<div class="footer_d">Welcome to Contact US @977036762 </div>-->
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(".regist").click(function(){
+        var name=$("input[type='text']").val();
+        var pw=$("input[type='password']").val();
+        $.ajax({
+            type:'POST',
+            url:'data/register.php',
+            data:{"uname":name,"pwd":pw},
+            success:function(data){
+                if(data.code==1){
+                    alert("注册成功！");
+                    location.href="login.html";
+                }
+            },
+            error:function(){
+                console.log("响应完成但有问题");
+            }
+        })
+    })
+</script>
+</body>
+</html>

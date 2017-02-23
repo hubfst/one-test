@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="orderApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/headANDfooter.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/order.css"/>
+    <title>妮儿网--确认订单</title>
+</head>
+<body ng-controller="orderCtrl">
+<div class="alert_modal">
+    <img src="images/order.gif" alt=""/>
+  <div>
+    <h2>购买成功！</h2>
+    <p>您的订单编号为：<span class="orderId" ng-bind="orderId">{{orderId}}</span></p>
+      <a href="">查看我的订单</a>
+      <a href="title.html"><i ng-bind="meter">{{meter}}</i>秒后回到首页</a>
+  </div>
+
+</div>
+
+<div class="header">
+    <div class="header_l">
+        <span></span>
+    </div>
+    <div class="header_r">
+        <ul>
+            <li><span class=" glyphicon glyphicon-shopping-cart" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>我的购物车</li>
+            <li><span class="glyphicon glyphicon-list-alt" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>/我的订单</li>
+        </ul>
+    </div>
+</div>
+<div class="nav">
+    <img src="images/logo.png">
+</div>
+
+<div class="container order">
+    <h5>选择收货地址<a class="add_address">使用新地址</a></h5>
+     <div class="addressShow">
+          <!--<div class="address">-->
+              <!--<p class="name">张哈哈</p>-->
+              <!--<p class="addR">-->
+                  <!--<span class="addr2">龙湖镇双湖经济开发区1号</span><br/>-->
+                  <!--<span class="addr1">河南省郑州市新郑市</span>-->
+                  <!--<span class="youbian">354000</span>-->
+              <!--</p>-->
+              <!--<p class="phone">1234567</p>-->
+              <!--<p class="edit">编辑</p>-->
+          <!--</div>-->
+     </div>
+    <div class="addAddress">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="proves" class="col-sm-2 control-label">省、市、区：<i class="needicon">*</i></label>
+                <div class="col-sm-10">
+                    <select name="prov" id="proves">
+                        <option value="福建省">福建省</option>
+                        <option value="河南省">河南省</option>
+                        <option value="湖北省">湖北省</option>
+                    </select>
+                    <select name="city" id="citys">
+                        <option value="邵武市">邵武市</option>
+                        <option value="郑州市">郑州市</option>
+                        <option value="武汉市">武汉市</option>
+                    </select>
+                    <select name="area" id="areass">
+                        <option value="南关区">南关区</option>
+                        <option value="建设区">建设区</option>
+                        <option value="淮河区">淮河区</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Emails" class="col-sm-2 control-label">邮政编码:<i class="needicon">*</i></label>
+                <div class="col-sm-10">
+                    <input type="text" id="Emails"/><span class="error_warn"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">街道地址:<i class="needicon">*</i></label>
+                <div class="col-sm-10">
+                    <textarea name="address" id="address"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="names" class="col-sm-2 control-label">收件人姓名:<i class="needicon">*</i></label>
+                <div class="col-sm-10">
+                    <input name="names" id="names"/><span class="error_warn"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phones" class="col-sm-2 control-label">电话:<i class="needicon">*</i></label>
+                <div class="col-sm-10">
+                    <input name="phone" id="phones"/><span class="error_warn"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-success" id="add_address">确定</button>
+                    <button class="btn btn-default" id="cancel_add">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="productShow">
+        <h5>确认商品信息</h5>
+        <table class="table">
+             <thead>
+                 <tr>
+                     <td class="text-center">商品</td>
+                     <td>商品信息</td>
+                     <td>单价(元)</td>
+                     <td>数量</td>
+                     <td>小计</td>
+                 </tr>
+             </thead>
+            <tbody>
+            <tr class="OneProduct" ng-repeat=" p in orderList">
+                <td class="pInfo">
+                    <img ng-src={{p.pimg}} />
+                    <span class="pName">{{p.pname}}</span>
+                </td>
+                <td>
+                    <span class="pColor">颜色：{{p.pcolor}}</span><br/>
+                    <span class="pScale">尺码：{{p.pscale}}</span>
+                </td>
+                <td class="price">
+                    {{p.price}}
+                </td>
+                <td class="pNum">{{p.pnum}}</td>
+                <td class="pTotal">{{p.xiaoji}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="tfoot">
+            <input type="text" id="ad" placeholder="备注您要特别说明的文字"/>
+            <p>共有<span class="total_num">{{total_num}}</span>件商品，总计：<span class="total_pay">{{total_pay}}</span>
+                <span class="goPay" ng-click="gopay()">买买买      ></span></p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/order.js"></script>
+</body>
+</html>

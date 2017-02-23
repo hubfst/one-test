@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/products.css" rel="stylesheet">
+    <link href="css/headANDfooter.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>products</title>
+</head>
+<body>
+<!--商品列表右侧的分页器-->
+<div id="page_aside">
+        <div class="every_style floor_active" data_search="1">1</div>
+        <div class="every_style" data_search="2">2</div>
+        <div class="every_style" data_search="3">3</div>
+        <div class="every_style" data_search="4">4</div>
+        <div class="every_style" data_search="5">5</div>
+</div>
+<!--网页头部-->
+<div class="header">
+    <div class="header_l">
+        <span></span>
+        <i class="glyphicon glyphicon-home"></i>
+        <span onclick="gohome()" id="gotitle">回到首页</span>
+    </div>
+    <div class="header_r">
+        <ul>
+            <li id="login">登录</li>
+            <li id="regiest">注册</li>
+            <li id="mycart"><span class=" glyphicon glyphicon-shopping-cart" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>我的购物车</li>
+            <li id="myOrder"><span class="glyphicon glyphicon-list-alt" style="font-size: 15px;color:#fa6f57;vertical-align: middle;margin-right: 5px"></span>/我的订单</li>
+        </ul>
+    </div>
+</div>
+<!--导航部分，包括logo，搜索框，-->
+<div class="nav">
+    <img src="images/logo.png">
+    <div id="search">
+        <input type="text">
+        <span id="search_icon"><i class="glyphicon glyphicon-search" style="font-size: 18px;color: white;margin: 7px auto"></i></span>
+        <ul id="fire_search">
+            <li><i class="glyphicon glyphicon-fire"></i></li>
+            <li>毛呢外套</li>
+            <li>打底裤</li>
+            <li>面包服</li>
+            <li>针织衫</li>
+            <li>羽绒服</li>
+            <li>长款毛衣</li>
+            <li>帽子</li>
+            <li>马丁靴</li>
+        </ul>
+    </div>
+</div>
+<!--网页主体内容，包括选择商品分类区域和商品展示区域-->
+<div id="products_tab">
+     <!--选择商品条件头部--->
+     <div id="tab_head">
+                 <ul>
+                     <li id="fi_li">上衣</li>
+                     <li>裙子</li>
+                     <li>女鞋</li>
+                </ul>
+     </div>
+    <!--选择商品条件主体--->
+     <div id="tab_content">
+         <div id="tabc_l">
+             <div class="sort_tab">
+                   <img src="images1/tab_content1.jpg">
+                   <img src="images1/tab_content2.jpg">
+                   <img src="images1/tab_content3.jpg">
+                   <img src="images1/tab_content4.jpg">
+             </div>
+         </div>
+         <div id="tabc_r">
+             <img src="images1/tab_content5.jpg">
+         </div>
+     </div>
+    <!--商品show--->
+     <div id="products_content">
+         <h2 id="content_tit">上衣</h2>
+         <div id="products_shows">
+
+         </div>
+     </div>
+</div>
+<!--网页尾部--->
+<div class="footer">
+            <div class="footer_u">
+                <div class="foot_center">
+                    <span id="title1" class="title">About Us</span><br>
+                <span id="p11">Sed ut perspiciatis unde omnis iste natus error sit <br>voluptatem accusantium
+                    doloremque laudantium,<br> totam rem aperiam veritatis et quasi nam liber tempore</span>
+                    <p id="title2" class="title">We are on Twitter</p>
+                    <span id="title3" class="title">Get in Touch with Us</span>
+                    <p id="p12">
+                        Address: 1600 Amphitheatre Parkway, Mountain View, fst<br>
+                        Phone: +321 123 456 7<br>
+                        E-mail:977036762@qq.com</p>
+                </div>
+    </div>
+    <!--<div class="footer_d">Welcome to Contact US @977036762 </div>-->
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>
